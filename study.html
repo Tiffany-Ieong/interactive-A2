@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Timer</title>
+  <link rel="stylesheet" href="./Document_files/reset.css">
+  <link rel="stylesheet" href="./Document_files/style.css"> <!-- style.css is shared with the 
+  main page so both pages have the same colours, fonts, and layout. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!--I make a timer to fit with the theme for studying, so the website could be mutifuntional-->
+  <!-- A countdown timer was chosen over a regular stopwatch style timer 
+because it encourages the user to set a fixed study goal before starting.  -->
+  <header>
+    <h1>Study Timer</h1>
+  </header>
+
+  <nav> <!-- Navigations so the user always knows where they are and can switch between pages easily.-->
+    <ul>
+      <li><a href="Document.html">AmbienceMixer</a></li>  
+      <li><a href="study.html">StudyTimer</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+  </main>
+ <!-- A new study.js for the timer page is linked. 
+  It is placed before the main content so the functions are available 
+  when the buttons are clicked. -->
+  <script src="study.js"></script>
+
+<main class="container">
+  <div class="timer-container">
+    
+    <div class="colour-block">
+
+      <div class="timer-display">
+        <div class="timer-inputs">
+          <div class="time-unit">
+            <button class="adjust-btn" onclick="adjustTime('hours', 1)">▲</button>
+            <span id="hours-display">00</span>
+            <button class="adjust-btn" onclick="adjustTime('hours', -1)">▼</button>
+            <label>HH</label>
+          </div>
+            <!-- Hours/Mintues/Second unit: the up and down arrow buttons call adjustTime 
+            with +1 or -1 to increment or decrement the hours value. The 
+            span shows the current value and is updated by JS. The label 
+            HH/MM/SS tells the user what the number represents. -->
+
+          <span class="colon">:</span>
+          <div class="time-unit">
+            <button class="adjust-btn" onclick="adjustTime('minutes', 1)">▲</button>
+            <span id="minutes-display">00</span>
+            <button class="adjust-btn" onclick="adjustTime('minutes', -1)">▼</button>
+            <label>MM</label>
+          </div>
+          <span class="colon">:</span>
+          <div class="time-unit">
+            <button class="adjust-btn" onclick="adjustTime('seconds', 1)">▲</button>
+            <span id="seconds-display">00</span>
+            <button class="adjust-btn" onclick="adjustTime('seconds', -1)">▼</button>
+            <label>SS</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- this section is the custom timer control buttons, start to begins, Stop pauses 
+     and Reset returns to zero.-->
+    <div class="timer-controls">
+      <button class="timer-btn" onclick="startTimer()">Start</button>
+      <button class="timer-btn" onclick="stopTimer()">Stop</button>
+      <button class="timer-btn" onclick="resetTimer()">Reset</button>
+    </div>
+ 
+  </div>
+</main>
+
+</body>
+</html>

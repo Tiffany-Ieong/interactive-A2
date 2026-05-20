@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="./Document_files/reset.css">
+<link rel="stylesheet" href="./Document_files/style.css">
+<script src="./Document_files/script.js.download" defer=""></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap" rel="stylesheet">
+ </head>
+<body>
+   <!-- Google Fonts: Edu AU VIC WA NT Guides was chosen because its handwriting 
+  style matches the soft, nature aesthetic of the website. The flowing lines 
+  also resemble a music staff, which ties into the media player theme. -->
+
+  <header>
+    <h1>Ambience Player</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">AmbienceMixer</a></li>
+      <li><a href="study.html">StudyTimer</a></li>
+    </ul>
+  </nav>
+  <!--I changed the navigation to fit what i have made-->
+
+  <main class="container">
+    <div class="player-and-sounds">
+
+      <!-- Video + controls -->
+      <div class="media-player">
+        <video id="custom-video-player">
+          <source src="videoassest/skyvideo.mp4" type="video/mp4">
+          <!--I drew and edited the animated video in After Effects, the music is from canvas.-->
+        </video>
+        <div class="custom-controls">
+          <button id="play-pause-btn" onclick="togglePlayPause()">
+            <img id="play-pause-img" src="./icons/play.png" alt="Play Button" width="100" height="75">
+          </button> <!--I drew my own play and pause button so they could match with the colour scheme of the website-->
+          <div class="progress-bar">
+            <span id="progress-bar-fill"></span>
+          </div>
+           <div class="volume-control">
+           <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+        </div> <!--I added an volume control bar so that the mix can be more customised.-->
+
+        </div>
+      </div>
+      <!-- Media Player: the video and controls are grouped together in one 
+      div so they can be placed side by side with the sound buttons using 
+      flexbox.-->
+      
+
+     <!--Ambience sound buttons were added so the user can mix their own atmosphere they like. --> 
+      <div class="sound-button">
+        <button id="fire">
+          <img src="icons/fireicon.jpg" alt="Fireplace" width="170" height="170">
+        </button>
+        <button id="rain">
+          <img src="icons/rainicon.jpg" alt="Rain" width="170" height="170">
+        </button>
+        <button id="lake">
+          <img src="icons/lakeicon.jpg" alt="Lake" width="170" height="170">
+        </button>
+      </div>
+      <!-- Fire, rain, and lake sounds were chosen because 
+      they are commonly used ambience sounds in relaxation and study videos 
+      online. I drew the icons so the style look consistent. -->
+    </div>
+  </main>
+
+</body>
+</html>
+
+
