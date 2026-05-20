@@ -1,0 +1,103 @@
+
+// These are the orignial script from the intial media player website that I kept
+const video = document.querySelector("#custom-video-player");
+video.volume = 1.0;
+const playPauseImg = document.querySelector("#play-pause-img");
+const progressBar = document.querySelector("#progress-bar-fill");
+
+
+video.removeAttribute("controls");
+video.addEventListener("timeupdate", updateProgressBar);
+
+function togglePlayPause() {
+  if (video.paused || video.ended) {
+    video.play();
+    playPauseImg.src = "icons/pause.png";
+  } else {
+    video.pause();
+    playPauseImg.src = "icons/play.png";
+  }
+}
+
+function updateProgressBar() {
+  const value = (video.currentTime / video.duration) * 100;
+  progressBar.style.width = value + "%";
+}
+
+//New script start from here 
+
+// Fireplace
+const fireAudio = new Audio();
+fireAudio.src = "sound/chimney-fire.wav";
+fireAudio.loop = true; 
+const fireButton = document.getElementById("fire");
+fireAudio.volume = 1.0; 
+
+//I set the volume of each audio different as they were downloaded with different volume
+// so I set it manually to try tune them to the same volume. 
+
+// .loop = true restart the audio automatically when it reaches its end.
+// so the user won't be disturbed and need to press to play it again
+
+fireButton.onpointerdown = () => {
+  if (fireAudio.paused) {
+    fireAudio.play();
+    fireButton.classList.add("active");
+  } else {
+    fireAudio.pause();
+    fireAudio.currentTime = 0;
+    fireButton.classList.remove("active");
+  }
+};
+
+
+//For rain and lake buttons, they have the same pattern/code as fire.
+// Each sound has its own Audio object so they can play simultaneously.
+
+// Rain
+const rainAudio = new Audio();
+rainAudio.src = "sound/rain.wav";
+rainAudio.loop = true;
+const rainButton = document.getElementById("rain");
+rainAudio.volume = 0.5; 
+
+rainButton.onpointerdown = () => {
+  if (rainAudio.paused) {
+    rainAudio.play();
+    rainButton.classList.add("active");
+  } else {
+    rainAudio.pause();
+    rainAudio.currentTime = 0;
+    rainButton.classList.remove("active");
+  }
+};
+
+// Lake
+const lakeAudio = new Audio();
+lakeAudio.src = "sound/lake.mp3";
+lakeAudio.loop = true;
+const lakeButton = document.getElementById("lake");
+lakeAudio.volume = 0.5; 
+
+lakeButton.onpointerdown = () => {
+  if (lakeAudio.paused) {
+    lakeAudio.play();
+    lakeButton.classList.add("active");
+  } else {
+    lakeAudio.pause();
+    lakeAudio.currentTime = 0;
+    lakeButton.classList.remove("active");
+  }
+};
+
+const volumeSlider = document.getElementById("volume-slider");
+
+// set starting volume to match the slider default value and to a float between 0.0 and 1.0.
+video.volume = volumeSlider.value;
+
+// update video volume when slider is moved
+volumeSlider.addEventListener("input", () => {
+  video.volume = volumeSlider.value;
+});
+
+
